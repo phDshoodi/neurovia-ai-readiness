@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Neurovia — Prototype Demo</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">
+      <img src="assets/logo.svg" alt="Neurovia logo" class="logo">
+      <div>
+        <h1>Neurovia</h1>
+        <p class="tag">Prototype — Proactive seizure monitoring (educational demo)</p>
+      </div>
+    </div>
+    <div class="header-actions">
+      <a class="kb-link" href="#knowledge">Knowledge Base</a>
+    </div>
+  </header>
+
+  <div class="disclaimer">
+    <strong>Disclaimer:</strong> This is an educational prototype. It is not clinically validated and does not replace medical professionals or emergency services.
+  </div>
+
+  <main class="layout">
+    <section class="dashboard">
+      <div class="card patient">
+        <h2>Patient Monitor</h2>
+        <div class="patient-meta">
+          <div>
+            <strong>Patient:</strong>
+            <div class="patient-name">Demo Patient</div>
+          </div>
+          <div class="last-updated">Last update: <span id="last-updated">—</span></div>
+        </div>
+
+        <canvas id="eeg-canvas" width="800" height="200" aria-label="Simulated EEG waveform"></canvas>
+
+        <div class="status-row">
+          <div class="risk-card">
+            <div class="risk-label">Risk</div>
+            <div id="risk-score" class="risk-score">—</div>
+            <div id="risk-indicator" class="risk-indicator low">LOW</div>
+          </div>
+
+          <div class="alerts-card">
+            <div class="alerts-header">Alerts</div>
+            <ul id="alerts" class="alerts-list">
+              <li class="muted">No alerts</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="card guidance">
+        <h3>Caregiver Safety Guidance</h3>
+        <div id="caregiver-guidance">Loading guidance...</div>
+      </div>
+
+      <div class="card kb-card" id="knowledge">
+        <h3>Knowledge Base</h3>
+        <div id="kb-list" class="kb-list">Loading...</div>
+      </div>
+    </section>
+
+    <aside class="assistant">
+      <div class="card chat-card">
+        <h2>Neurovia Assistant</h2>
+        <div class="protosmall">Educational prototype — not medical advice</div>
+        <div id="chat" class="chat">
+          <div id="messages" class="messages"></div>
+        </div>
+        <form id="chat-form" class="chat-form">
+          <input id="chat-input" placeholder="Ask the Neurovia Assistant (e.g., seizure first aid)" autocomplete="off">
+          <button type="submit">Send</button>
+        </form>
+      </div>
+
+      <div class="card sources">
+        <h3>Sources</h3>
+        <ul id="source-links"></ul>
+      </div>
+    </aside>
+  </main>
+
+  <footer class="site-footer">
+    <small>Neurovia — Prototype demo for hackathon presentation. Not a medical product.</small>
+  </footer>
+
+  <script src="js/app.js" defer></script>
+</body>
+</html>
