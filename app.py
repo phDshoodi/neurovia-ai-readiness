@@ -4,7 +4,6 @@ import matplotlib.pyplot as plt
 import networkx as nx
 import pandas as pd
 
-# 1. Page Configuration & Glowing Theme (Cyber Blue & Neon Green)
 st.set_page_config(page_title="NeuroVia AI - Sandbox Hackathon", page_icon="🧠", layout="wide")
 
 st.markdown("""
@@ -12,18 +11,16 @@ st.markdown("""
     .stApp { background-color: #0b0f19; color: #e2e8f0; }
     div[data-testid="stSidebar"] { background-color: #111827; border-right: 1px solid #1f2937; }
     h1, h2, h3 { color: #38bdf8 !important; font-family: 'Courier New', Courier, monospace; }
-    .custom-title { color: #38bdf8; font-size: 2.3rem; font-weight: bold; letter-spacing: 1px; margin-bottom: 0px; }
+    .custom-title { color: #38bdf8; font-size: 2.3rem; font-weight: bold; letter-spacing: 1px; }
     .custom-subtitle { color: #4ade80; font-size: 1rem; margin-bottom: 25px; }
     .bot-response { background-color: #1e293b; padding: 15px; border-left: 4px solid #4ade80; border-radius: 6px; margin-top: 10px; color: #f1f5f9; }
     .scenario-box { background-color: #111827; padding: 15px; border: 1px solid #1f2937; border-radius: 8px; margin-bottom: 15px; }
     </style>
 """, unsafe_allow_html=True)
 
-# Main Dashboard Header
 st.markdown('<div class="custom-title">NEUROVIA - TELECOM COMPLAINT HUB</div>', unsafe_allow_html=True)
 st.markdown('<div class="custom-subtitle">AI for Good Sandbox Hackathon Implementation | Developed for Dr. Shahd</div>', unsafe_allow_html=True)
 
-# 2. Sidebar Configuration (Context Swapping UI)
 st.sidebar.markdown("<h3 style='color:#38bdf8;'>SANDBOX CONTROL</h3>", unsafe_allow_html=True)
 domain_choice = st.sidebar.selectbox("KNOWLEDGE BASE INTERFACE (Swap Context)", ["Telecom Ministry KB", "Alternative Ministry KB"])
 intensity = st.sidebar.slider("AI NETWORK SIMULATION INTENSITY", 0.1, 1.0, 0.75)
@@ -31,7 +28,6 @@ intensity = st.sidebar.slider("AI NETWORK SIMULATION INTENSITY", 0.1, 1.0, 0.75)
 st.sidebar.markdown("---")
 st.sidebar.markdown(f"<small style='color:#4ade80;'>Active Framework: Swap Context Active<br>Current KB: {domain_choice}<br>Framework Status: Cost Optimized</small>", unsafe_allow_html=True)
 
-# 3. Real-Time Network Mapping & Pipeline Activity
 st.markdown("<h3 style='color:#4ade80;'>🧠 REAL-TIME NETWORK MAPPING & PIPELINE ACTIVITY</h3>", unsafe_allow_html=True)
 
 np.random.seed(42)
@@ -42,10 +38,9 @@ y = np.sin(angles) * 0.9 + np.random.normal(0, 0.1, n_nodes)
 pos = {i: (x[i], y[i]) for i in range(n_nodes)}
 G = nx.erdos_renyi_graph(n_nodes, 0.15, seed=12)
 
-# Dynamic color mapping based on selected Knowledge Base for cost optimization simulation
 if domain_choice == "Telecom Ministry KB":
     current_values = ((np.sin(x) + np.cos(y) + 2) / 4) * intensity
-    cmap_theme = plt.cm.GnBu
+    cmap_theme = plt.cm.GnBu  
 else:
     current_values = np.clip(np.abs(x * y) * intensity + 0.2, 0.0, 1.0)
     cmap_theme = plt.cm.winter
@@ -58,7 +53,6 @@ ax.axis('off')
 plt.tight_layout()
 st.pyplot(fig)
 
-# 4. Hackathon Demo Scenarios Panels (Scenarios 1-4)
 st.markdown("<h3 style='color:#38bdf8;'>📋 DEMO SCENARIOS & PROBLEM HANDLING</h3>", unsafe_allow_html=True)
 scen_tab1, scen_tab2, scen_tab3, scen_tab4 = st.tabs(["Scenario 1: Resolution", "Scenario 2: Explainability", "Scenario 3: Privacy & Conflict", "Scenario 4: Cost Reuse"])
 
@@ -79,7 +73,6 @@ with scen_tab3:
 with scen_tab4:
     st.markdown(f'<div class="scenario-box"><b>Framework Context Swapping & Cost Reduction:</b> Current interface is using <b>{domain_choice}</b>. The same application structure and Policy Rules (P Rules) are successfully shared to achieve optimal budget execution.</div>', unsafe_allow_html=True)
 
-# 5. Reliable AI Knowledge Base Consultant (Trusted Rules Chatbot)
 st.markdown("<h3 style='color:#38bdf8;'>🤖 COMPLAINT HANDLING AI CONSULTANT</h3>", unsafe_allow_html=True)
 
 knowledge_base = {
@@ -107,7 +100,6 @@ if user_query:
 
 st.markdown("---")
 
-# 6. ITU-T Y.3172 Readiness 2.0 Pipeline Mapping Table
 st.markdown("<h3 style='color:#4ade80;'>📊 ITU-T Y.3172 READINESS 2.0 PIPELINE MAPPING</h3>", unsafe_allow_html=True)
 
 pipeline_data = {
